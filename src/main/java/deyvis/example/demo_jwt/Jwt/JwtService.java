@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 import deyvis.example.demo_jwt.User.User;
+import lombok.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ import javax.crypto.SecretKey;
 @Service
 public class  JwtService {
 
-    private static final String SECRET_KEY="B/GvzCY8qFz+6bSJ8ntnHGMrPrVR4XCDa8CTgmnJBg8=";
+    private static final String SECRET_KEY=System.getenv("JWT_SECRET");
 
     public String getToken(User user) {
         return getToken(new HashMap<>(), user);
